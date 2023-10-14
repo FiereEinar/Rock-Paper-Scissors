@@ -1,10 +1,35 @@
 body {
-    font-size: 20px;
+    font-size: 15pt;
 }
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+button{
+  width: 100px;
+  
+}
+.users {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+.choiceContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+.users > p {
+  margin: 0 40px;
+}
+.choiceContainer > p {
+  margin: 30px;
+}
+label {
+  margin: 20px;
 }

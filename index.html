@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=x, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">Rock, Paper, Scissors</div>
-        <label class="label">0</label>
-        <div class="buttonContainer">
-            <button value="rock" class="rock">Rock</button>
-            <button value="paper" class="paper">Paper</button>
-            <button value="scissor" class="scissor">Scissors</button>
-        </div>
+  <div class="container">
+    <h2>ROCK PAPER SCISSOR</h2>
+    <div class="users">
+      <p>player</p>
+      <p>computer</p>
     </div>
-    <script src="main.js"></script>
+    <div class="choiceContainer">
+      <p class="playerChoice"></p>
+      <p class="computerChoice"></p>
+    </div>
+    <label class="label" id="score">winner</label>
+    <div class="buttonContainer">
+      <button class="btn" id="rock">rock</button>
+      <button class="btn" id="paper">paper</button>
+      <button class="btn" id="scissors">scissor</button>
+    </div>
+  </div>
+  
+  <!-- Project -->
+  <script src="main.js"></script>
 </body>
 </html>
