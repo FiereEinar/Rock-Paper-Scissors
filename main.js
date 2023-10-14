@@ -1,24 +1,31 @@
-let winCheck;
+const button = document.querySelectorAll('.btn');
+const label = document.querySelector('.label');
+const player = document.querySelector('.playerChoice');
+const computer = document.querySelector('.computerChoice');
+
 let playerSelection;
-let computerSelection;
-let input;
+let winCheck;
 
-const label = document.querySelector(".label");
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach(button => {
-  button.addEventListener("click", function(){
-    label.innerText = buttons.value;
+button.forEach(button =>{
+  button.addEventListener('click', () => {
+    playerSelection = button.id;
+    computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+    update();
   });
 });
 
+function update () {
+  label.innerText = winCheck;
+  player.innerText = playerSelection;
+  computer.innerText = computerSelection;
+}
 
 function getComputerChoice () {
   let choices = ["rock", "paper", "scissors"];
   let x = Math.floor(Math.random() * 3);
   return choices[x];
 }
-
 
 function playRound (playerSelection, computerSelection) {
   if (playerSelection === "rock") {
@@ -56,32 +63,6 @@ function playRound (playerSelection, computerSelection) {
         case 'scissors':
           return winCheck = "Tie"
           break;
-      }
+    }
   } 
 }
-
-
-function inputChecker (playerSelection) {
-  if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
-    return input = true;
-  }
-}
-
-
-function game() {
-  
-  inputChecker(playerSelection);
-  if (playerSelection === '' || playerSelection === null) {
-    return;
-  } else if (input) {
-    alert("Only enter rock, paper, or scissors");
-  } else {
-    playerSelection = playerSelection.toLowerCase();
-  computerSelection = getComputerChoice();
-  playRound(playerSelection, computerSelection);
-  alert(`The computer chose - ${computerSelection}
-You chose - ${playerSelection}
-  
-${winCheck}`);
-  }
-} 
