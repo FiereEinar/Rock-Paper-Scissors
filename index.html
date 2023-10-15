@@ -7,22 +7,22 @@
 
   <title>HTML</title>
   
-  <!-- HTML -->
-  
-  <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
   <div class="container">
     <h2>ROCK PAPER SCISSOR</h2>
-    <div class="users">
-      <p>player</p>
-      <p>computer</p>
-    </div>
     <div class="choiceContainer">
-      <p class="playerChoice"></p>
-      <p class="computerChoice"></p>
+      <div class="playerContainer">
+        <p>player</p>
+        <div class="playerChoice"></div>
+      </div>
+      <div class="computerContainer">
+        <p>computer</p>
+        <div class="computerChoice"></div>
+      </div>
     </div>
     <label class="label" id="score">winner</label>
     <div class="buttonContainer">
@@ -32,7 +32,6 @@
     </div>
   </div>
   
-  <!-- Project -->
   <script src="main.js"></script>
 </body>
 </html>
