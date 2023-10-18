@@ -14,21 +14,25 @@
 
   <div class="container">
     <h2>ROCK PAPER SCISSOR</h2>
+    <p class="scoreText">score 10 to win!</p>
     <div class="choiceContainer">
       <div class="playerContainer">
-        <p>player</p>
+        <p>player - <span class="playerScore">0</span></p>
         <div class="playerChoice"></div>
       </div>
       <div class="computerContainer">
-        <p>computer</p>
+        <p>computer - <span class="computerScore">0</span></p>
         <div class="computerChoice"></div>
       </div>
     </div>
-    <label class="label" id="score">winner</label>
+    <label class="label" id="score">Start</label>
     <div class="buttonContainer">
       <button class="btn" id="rock">rock</button>
       <button class="btn" id="paper">paper</button>
       <button class="btn" id="scissors">scissor</button>
+    </div>
+    <div>
+      <button class="resetButton" onclick="reset()">reset</button>
     </div>
   </div>
   

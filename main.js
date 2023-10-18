@@ -2,16 +2,29 @@ const button = document.querySelectorAll('.btn');
 const label = document.querySelector('.label');
 const player = document.querySelector('.playerChoice');
 const computer = document.querySelector('.computerChoice');
+const playerScore = document.querySelector('.playerScore');
+const computerScore = document.querySelector('.computerScore');
+const scoreText = document.querySelector('.scoreText');
 
 let playerSelection;
 let winCheck;
+let pScore = 0;
+let cScore = 0;
 
 button.forEach(button =>{
   button.addEventListener('click', () => {
-    playerSelection = button.id;
-    computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
-    update();
+    if (pScore !== 10 && cScore !== 10) {
+      playerSelection = button.id;
+      computerSelection = getComputerChoice();
+      playRound(playerSelection, computerSelection);
+      update();
+    } else if (pScore == 10) {
+      label.innerText = "Winner: Player!";
+      scoreText.innerText = "Click reset to play again";
+    } else if (cScore == 10) {
+      label.innerText = "Winner: Computer!";
+      scoreText.innerText = "Click reset to play again";
+    }
   });
 });
 
@@ -19,6 +32,13 @@ function update () {
   label.innerText = winCheck;
   player.innerText = playerSelection;
   computer.innerText = computerSelection;
+  if (winCheck === 'You Win') {
+    playerScore.innerText++
+    pScore++;
+  } else if (winCheck === 'You Lose') {
+    computerScore.innerText++
+    cScore++;
+  } 
 }
 
 function getComputerChoice () {
@@ -27,42 +47,44 @@ function getComputerChoice () {
   return choices[x];
 }
 
+function reset () {
+  playerScore.innerText = 0;
+  computerScore.innerText = 0;
+  label.innerText = "Start";
+  player.innerText = "";
+  computer.innerText = "";
+  pScore = 0;
+  cScore = 0;
+  scoreText.innerText = "score 10 to win!";
+}
+
 function playRound (playerSelection, computerSelection) {
   if (playerSelection === "rock") {
     switch (computerSelection) {
       case 'rock':
         return winCheck = "Tie"
-        break;
       case 'paper':
         return winCheck = "You Lose"
-        break;
       case 'scissors':
         return winCheck = "You Win"
-        break;
     }
   } else if (playerSelection === "paper") {
       switch (computerSelection) {
         case 'rock':
           return winCheck = "You Win"
-          break;
         case 'paper':
           return winCheck = "Tie"
-          break;
         case 'scissors':
           return winCheck = "You Lose"
-          break;
     }
   } else if (playerSelection === "scissors") {
       switch (computerSelection) {
         case 'rock':
           return winCheck = "You Lose"
-          break;
         case 'paper':
           return winCheck = "You Win"
-          break;
         case 'scissors':
           return winCheck = "Tie"
-          break;
     }
   } 
 }
